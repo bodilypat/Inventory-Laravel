@@ -1,0 +1,2 @@
+app/Models/Purchase.php
+
