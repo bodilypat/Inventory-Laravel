@@ -1,4 +1,8 @@
-<!-- app/Http/Requests/PurchaseRequest.php -->
+<!-- app/Http/Requests/PurchaseRequest.php 
+ | -- This request class is responsible for validating purchase creation requests.
+ | -- It checks that the user is authorized (admin, manager, staff) and that the request data is valid (items array with product_id, 
+ | -- quantity, total_price, and optional discount).
+ -->
 <?php
 
 namespace App\Http\Requests;

@@ -1,4 +1,7 @@
-<!-- app/Http/Requests/ProductRequest.php -->
+<!-- app/Http/Requests/ProductRequest.php 
+ | -- This request class is responsible for validating product creation and update requests.
+ | -- It checks that the user is authorized (admin, manager, staff) and that the request data is valid.
+ -->
 <?php
 
 namespace App\Http\Requests;

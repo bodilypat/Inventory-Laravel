@@ -1,4 +1,7 @@
-<!-- app/Http/Requests/AuthRequest.php -->
+<!-- app/Http/Requests/AuthRequest.php 
+ | -- This request class is responsible for validating authentication requests.
+ | -- It checks that the user is authorized (admin, manager, staff) and that the request data is valid.
+ -->
 
 <?php
 

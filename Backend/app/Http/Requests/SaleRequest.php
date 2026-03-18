@@ -1,4 +1,8 @@
-<!-- app/Http/Requests/SaleRequest.php -->
+<!-- app/Http/Requests/SaleRequest.php 
+ | -- This request class is responsible for validating sale creation requests.
+ | -- It checks that the user is authorized (admin, manager, staff) and that the request data is valid (items array with product_id, 
+ | -- quantity, total_price, and optional discount).
+ -->
 
 <?php
 namespace App\Http\Requests;
