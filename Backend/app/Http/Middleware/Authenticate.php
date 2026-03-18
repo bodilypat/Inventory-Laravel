@@ -1,4 +1,6 @@
-<!-- app/Http/Middleware/Authenticate.php -->
+<!-- app/Http/Middleware/Authenticate.php
+| -- This middleware handles authentication for incoming requests.
+ -->  
 
 <?php
 namespace App\Http\Middleware;
@@ -37,5 +39,5 @@ class Authenticate extends Middleware
         parent::unauthenticated($request, $guards);
     }
 
-    
+
 }

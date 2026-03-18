@@ -1,4 +1,6 @@
-<!-- app/Http/Middleware/LogRequests.php -->  
+<!-- app/Http/Middleware/LogRequests.php 
+| -- This middleware logs incoming requests for debugging and monitoring purposes.
+ -->  
 
 <?php
 

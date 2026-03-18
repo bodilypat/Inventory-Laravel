@@ -1,4 +1,6 @@
-<!-- app/Http/Middleware/RoleMiddleware.php  -->    
+<!-- app/Http/Middleware/RoleMiddleware.php  
+| -- This middleware checks if the authenticated user has the required role 
+-->    
 <?php
 
 namespace App\Http\Middleware;
