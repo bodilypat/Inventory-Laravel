@@ -23,27 +23,29 @@ Full-Stack-Inventory-Management-System
 │   │   │  		├── SaleRequest.php
 │   │   │       └── PurchaseRequest.php
 │   │   │
-│   │   ├── models/                                       # Eloquent ORM model (equivalent to Node.js Model )
+│   │   ├── Services/                                   
+│   │   │   ├── BaseService.php
+│   │   │   ├── AuthService.php                            
+│   │   │   ├── UserService.php					             
+│   │   │   ├── ProductService.php                           
+│   │   │   ├── OrderService.php                  
+│   │   │   ├── PurchaseOrderService.php
+│   │   │   ├── InventoryService.php
+│   │   │   ├── LogService.php
+│   │   │   └── SettingService.php
+│   │   ├── Models/                                       # Eloquent ORM model (equivalent to Node.js Model )
 │   │   │   ├── User.php
 │   │   │   ├── Product.php
 │   │   │   ├── Category.php
 │   │   │   ├── Supplier.php
-│   │   │   ├── Sale.php
-│   │   │   ├── SaleItem.php
-│   │   │   ├── PurchaseItem.php
+│   │   │   ├── Order.php
+│   │   │   ├── OrderItem.php
+│   │   │   ├── Purchase.php
+│   │   │   ├── PurchaseOrderItem.php
 │   │   │   ├── StockMovement.php
-│   │   │   ├── Log.php
+│   │   │   ├── StockLog.php
 │   │   │   └── Setting.php
-│   │   │
-│   │   ├── Services/                                    # Business logic (equivalent to Node.js service)
-│   │   │   ├── AuthService.php                            
-│   │   │   ├── UserService.php					             
-│   │   │   ├── ProductService.php                           
-│   │   │   ├── SaleService.php                  
-│   │   │   ├── PurchaseService.php
-│   │   │   ├── InventoryService.php
-│   │   │   ├── LogService.php
-│   │   │   └── SettingService.php  
+│   │   │  
 │   │   └── Helpers/                                     # Shared utilities
 │   │       ├── ResponseHelper.php
 │   │       ├── HashHelper.php
@@ -52,9 +54,10 @@ Full-Stack-Inventory-Management-System
 │   ├── routes/                                          # Routes (we.php / api.php)
 │   │   └── api.php                                      # API routes
 │   ├── database/                                       
-│   │   ├── migrations/                                  # Table migrations
-│   │   ├── seeders/                                     # Seed data
-│   │   └── factories/                                   # Model factories for testing
+│   │   ├── migrations/                                  # Schema definitions (Laravel migrations)
+│   │   ├── seeders/                                     # Initial & test data
+│   │   ├── facories/                                    # Model factories (testing)
+│   │   └── schema.sql                                   # Optional raw SQL schema
 │   └── public/   
 │       ├── feature/
 │       └── Unit/   
@@ -67,170 +70,60 @@ Full-Stack-Inventory-Management-System
 ├── frontend/ (React • JavaScript • HTML • CSS) components -> pages -> hooks -> services -> routes -> utils -> App.jsx
 │   │
 │   ├── src/
-│   │   ├── app/                                         # App initialization
-│   │   │   ├── store.js  
-│   │   │   ├── Provider.jsx
-│   │   │   └── App.jsx.
+│   │   ├── app/                                         # App setup & global configuration
+│   │   │   ├── store.js                                 # State management (Redux/Zustand)
+│   │   │   ├── Provider.jsx                             # Global providers (Redux, Context, Theme)
+│   │   │   └── App.jsx.                                 # Root app component
 │   │   ├── routes/                                      # Routing system
-│   │   │   ├── AppRoutes.jsx    
-│   │   │   └── PrivateRoute.jsx
-│   │   ├── api/                                         # API configuration
-│   │   │   ├── axiosClient.js    
-│   │   │   └── endpoint.js
-│   │   │
-│   │   ├── features/                                    # Feature-based modules
-│   │   │   ├── auth/                                                              
-│   │   │   │   ├── api/                                    
-│   │   │   │   │   └── authApi.js
-│   │   │   │   ├── hooks/                                    
-│   │   │   │   │   └── useAuth.js
-│   │   │   │   ├── pages/        
-│   │   │   │   │   ├── Login.jsx  
-│   │   │   │   │   └── Register.jsx                        
-│   │   │   │   ├── authSlice.js
-│   │   │   │   └── authService.js
-│   │   │   ├── products/                                                              
-│   │   │   │   ├── api/                                    
-│   │   │   │   │   └── productApi.js
-│   │   │   │   ├── components/                                    
-│   │   │   │   │   ├── ProductTable.jsx 
-│   │   │   │   │   └── ProductForm.jsx
-│   │   │   │   ├── pages/        
-│   │   │   │   │   ├── ProductList.jsx
-│   │   │   │   │   └── ProductDetials.jsx
-│   │   │   │   ├── hooks/                                    
-│   │   │   │   │   └── useProduct.js
-│   │   │   │   ├── productSlice.js
-│   │   │   │   └── productService.js
-│   │   │   ├── sales/                                                              
-│   │   │   │   ├── api/                                    
-│   │   │   │   │   └── saleApi.js
-│   │   │   │   ├── components/                                    
-│   │   │   │   │   └── SalesTable.jsx
-│   │   │   │   ├── pages/        
-│   │   │   │   │   ├── SalesPage.jsx
-│   │   │   │   │   └── SaleDetails.jsx
-│   │   │   │   ├── hooks/                                    
-│   │   │   │   │   └── useSales.js
-│   │   │   │   ├── saleSlice.js
-│   │   │   │   └── salesService.js
-│   │   │   ├── purchases/
-│   │   │   │   ├── api/                                    
-│   │   │   │   │   └── purchaseApi.js
-│   │   │   │   └── pages/
-│   │   │   │       └── PurchasePage.jsx
+│   │   │   ├── AppRoutes.jsx                            # Central route definitions
+│   │   │   └── PrivateRoute.jsx                         # Protected  routes (auth)
+│   │   ├── api/                                         # API layer (Axios/ fetch setup)
+│   │   │   ├── axiosClient.js                           # configuration Axios instance
+│   │   │   └── endpoint.js                              # API endpoint definitions
+│   │   │  
+│   │   ├── features/                                    # Feature-based modules     
+│   │   │   ├── dashboard/    
+│   │   │   │   └── DashboardPage.jsx                                                   
+│   │   │   ├── products/
+│   │   │   │	├── components/
+│   │   │  	│	│   ├── AddProduct.jsx
+│   │   │   │   │   └── EditProduct.jsx
+│   │   │   │   ├── hooks/
+│   │   │   │   ├── services/
+│   │   │   │   └── ProductPage.jsx
 │   │   │   ├── suppliers/
-│   │   │   │   ├── api/                                    
-│   │   │   │   │   └── supplierApi.js
-│   │   │   │   └── pages/
-│   │   │   │       └── SupplierPage.jsx
-│   │   │   ├── categories/
-│   │   │   │   ├── api/                                    
-│   │   │   │   │   └── categoryApi.js
-│   │   │   │   └── pages/
-│   │   │   │       └── CategoryPage.jsx
-│   │   │   ├── inventory/
-│   │   │   │   ├── api/                                    
-│   │   │   │   │   └── stockApi.js
-│   │   │   │   ├── pages/                                    
-│   │   │   │   │   └── InventoryPage.jsx
-│   │   │   │   └── inventorySlice.js  
-│   │   │   └── settings/
-│   │   │       ├── api/
-│   │   │       │   └── settingsApi.js
-│   │   │       └── pages/
-│   │   │           └── SettingsPage.jsx
-│   │   ├── components/                                  # Global reuable components    
-│   │   │   ├── ui/                                                              
-│   │   │   │   ├── Button/ 
-│   │   │   │   │   ├── Button.jsx      
-│   │   │   │   │   ├── Button.css
-│   │   │   │   │   └── index.js                     
-│   │   │   │   ├── Input/
-│   │   │   │   │   ├── Input.jsx      
-│   │   │   │   │   ├── Input.css
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── Select/
-│   │   │   │   │   ├── Select.jsx      
-│   │   │   │   │   ├── Select.css
-│   │   │   │   │   └── index.js                                  
-│   │   │   │   ├── Checkbox/
-│   │   │   │   │   ├── Checkbox.jsx      
-│   │   │   │   │   ├── Checkbox.css
-│   │   │   │   │   └── index.js                              
-│   │   │   │   ├── Table/
-│   │   │   │   │   ├── Table.jsx      
-│   │   │   │   │   ├── TableHeader.jsx
-│   │   │   │   │   ├── TableRow.jsx
-│   │   │   │   │   ├── TableCell.jsx
-│   │   │   │   │   ├── Table.css
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── Modal/
-│   │   │   │   │   ├── Modal.jsx
-│   │   │   │   │   ├── ModalHeader.jsx      
-│   │   │   │   │   ├── ModalBody.jsx
-│   │   │   │   │   ├── ModalFooter.jsx
-│   │   │   │   │   ├── Modal.css
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── Card/
-│   │   │   │   │   ├── Card.jsx      
-│   │   │   │   │   ├── CardHeader.jsx
-│   │   │   │   │   ├── CardBody.jsx
-│   │   │   │   │   ├── CardFoodter.jsx
-│   │   │   │   │   ├── Card.css
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── Badge/
-│   │   │   │   │   ├── Badge.jsx      
-│   │   │   │   │   ├── Badge.css
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── Spinner/
-│   │   │   │   │   ├── Spinner.jsx      
-│   │   │   │   │   ├── Spinner.css
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── Loader/
-│   │   │   │   │   ├── Loader.jsx      
-│   │   │   │   │   ├── Loader.css
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── Pagination/
-│   │   │   │   │   ├── Pagination.jsx 
-│   │   │   │   │   ├── Pagination.css     
-│   │   │   │   │   └── index.js
-│   │   │   │   └── index.js                           
-│   │   │   ├── layout/ 
-│   │   │   │   ├── Navbar/
-│   │   │   │   │   ├── Navbar.jsx 
-│   │   │   │   │   ├── Navbar.css     
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── Sidebar/
-│   │   │   │   │   ├── Sidebar.jsx 
-│   │   │   │   │   ├── Sidebar.css     
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── PageHeader/
-│   │   │   │   │   ├── PageHeader.jsx 
-│   │   │   │   │   ├── PageHeader.css     
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── Breadcrumb/
-│   │   │   │   │   ├── Breadcrumb.jsx 
-│   │   │   │   │   ├── Breadcrumb.css     
-│   │   │   │   │   └── index.js
-│   │   │   │   ├── DashboardLayout/
-│   │   │   │   │   ├── DashboardLayout.jsx 
-│   │   │   │   │   ├── DashboardLayout.css     
-│   │   │   │   │   └── index.js
-│   │   │   │   └── index.js
-│   │   │   └── charts/
-│   │   │       ├── SaleChart.jsx
-│   │   │       └── InventoryChart.jsx
-│   │   │      
-│   │   ├── hooks/                                       # Global shared hooks
+│   │   │   │	├── components/
+│   │   │   │   │   └── SupplierList.jsx
+│   │   │   │   ├── hooks/
+│   │   │   │   ├── services/
+│   │   │   │   └── SupplierPage.jsx
+│   │   │   └── transactions/ 
+│   │   │   	├── components/
+│   │   │       │   └── TransactionHistory.jsx
+│   │   │       ├── hooks/
+│   │   │       ├── services/
+│   │   │       └── TransactionsPage.jsx
+│   │   ├── components/                                  # Global reuable  UI components    
+│   │   │   ├── Navbar.jsx                                                              
+│   │   │   ├── Button.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   └── Loader.jsx
+│   │   │     
+│   │   ├── hooks/                                       # Global reusable hooks
 │   │   │   ├── useDebounce.js
-│   │   │   └── usePagination.js
-│   │   ├── utils/                                       # Utility function
+│   │   │   └── usePagination.js 
+│   │   ├── services/                                    # Global services(non-feature specific)
+│   │   │   ├── authService.js
+│   │   │   └── storageService.js
+│   │   ├── utils/                                       # Utility function & constants
 │   │   │   ├── formatCurrency.js
 │   │   │   ├── formatDate.js
 │   │   │   ├── validation.js
-│   │   │   └── constants.js                       
-│   │   └── main.jsx
+│   │   │   └── constants.js      
+│   │   ├── styles/                                       # Global shared hooks
+│   │   │   └── global.css
+│   │   ├── index.js                                     # Entry point
+│   │   └── main.js                                      # (if using Vite instead of CRA)
 │   └── public/                  
 ├── .env                                      
 ├── package.json
