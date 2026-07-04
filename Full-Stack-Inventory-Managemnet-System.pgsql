@@ -9,69 +9,197 @@ Full-Stack-Inventory-Management-System
 │   │   ├── assets/                                         
 │   │   │   ├── icons/                                 
 │   │   │   ├── images/                             
+│   │   │   ├── fonts/
 │   │   │   └── styles/  
 │   │   │       ├── global.css
 │   │   │       ├── variable.css
 │   │   │       └── global.css                         
 │   │   ├── components/                                     
 │   │   │   ├── common/  
-│   │   │   │   ├── Narbar.jsx
-│   │   │   │   └── Navbar.css     
+│   │   │   │   ├── Button.jsx
+│   │   │   │   ├── Input.jsx 
+│   │   │   │   ├── Select.jsx 
+│   │   │   │   ├── Textarea.jsx 
+│   │   │   │   ├── Checkbox.jsx
+│   │   │   │   ├── Radio.jsx
+│   │   │   │   ├── ButtonGroup.jsx 
+│   │   │   │   ├── Card.jsx
+│   │   │   │   ├── Modal.jsx 
+│   │   │   │   ├── Table.jsx 
+│   │   │   │   ├── Badge.jsx 
+│   │   │   │   ├── Alert.jsx
+│   │   │   │   ├── Toast.jsx
+│   │   │   │   ├── Loader.jsx
+│   │   │   │   ├── Spinner.jsx
+│   │   │   │   ├── SearchBar.jsx
+│   │   │   │   ├── Pagination.jsx 
+│   │   │   │   ├── Breadcrumb.jsx 
+│   │   │   │   ├── Avatar.jsx
+│   │   │   │   ├── EmptyState.jsx
+│   │   │   │   ├── ConfirmDialog.jsx
+│   │   │   │   ├── Common.css
+│   │   │   │   └── index.js     
 │   │   │   ├── layout/  
+│   │   │   │   ├── Navbar.jsx
 │   │   │   │   ├── Sidebar.jsx
-│   │   │   │   └── Sidebar.css   
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   └── Layout.css
 │   │   │   └── inventory/    
-│   │   │  		├── ProductCard/
-│   │   │  		├── ProductForm/
-│   │   │  		├── CategoryForm/
-│   │   │  		├── SupplierForm/
-│   │   │       └── CustomerForm/
+│   │   │  		├── ProductCard.jsx
+│   │   │  		├── ProductForm.jsx
+│   │   │  		├── ProductTable.jsx 
+│   │   │  		├── CategoryForm.jsx
+│   │   │  		├── SupplierForm.jsx
+│   │   │  		├── CustomerForm.jsx
+│   │   │  		├── PurchaseForm.jsx 
+│   │   │  		├── PurchaseTable.jsx 
+│   │   │  		├── SaleForm.jsx
+│   │   │  		├── SaleTable.jsx
+│   │   │  		├── InventoryTable.jsx 
+│   │   │  		├── StockBadge.jsx
+│   │   │  		├── StockStatus.jsx
+│   │   │  		├── StockMovementTable.jsx
+│   │   │  		├── DashboardCards.jsx 
+│   │   │  		├── LowStockAlert.jsx 
+│   │   │  		├── SummaryCards.jsx
+│   │   │  		├── Filters.jsx
+│   │   │  		├── Inventory.css
+│   │   │       └── Index.js
 │   │   │  
 │   │   ├── pages/                                       
 │   │   │   ├── auth/ 
+│   │   │  	│	├── Login.jsx
+│   │   │  	│	├── ForgotPassword.jsx
+│   │   │  	│	├── ResetPassword.jsx
+│   │   │  	│	├── Auth.css
+│   │   │   │   └── index.js
 │   │   │   ├── dashboard/  
+│   │   │   │   ├── Dashboard.jsx
+│   │   │  	│	├── dashboard.css
+│   │   │   │   └── index.js
 │   │   │   ├── products/ 
-│   │   │   ├── categories/                                                  
+│   │   │   │   ├── ProductList.jsx
+│   │   │  	│	├── ProductCreate.jsx 
+│   │   │  	│	├── ProductEdit.jsx
+│   │   │  	│	├── ProductDetails.jsx
+│   │   │  	│	├── products.css
+│   │   │   │   └── index.js
+│   │   │   ├── categories/   
+│   │   │   │   ├── CategoryList.jsx
+│   │   │  	│	├── CategoryCreate.jsx
+│   │   │  	│	├── CategoryEdit.jsx
+│   │   │  	│	├── categories.css
+│   │   │   │   └── index.css                                             
 │   │   │   ├── suppliers/
+│   │   │   │   ├── SupplierList.jsx
+│   │   │  	│	├── SupplierCreate.jsx 
+│   │   │  	│	├── SupplierEdit.jsx 
+│   │   │  	│	├── supplier.css
+│   │   │   │   └── index.js
 │   │   │   ├── customers/
+│   │   │   │   ├── CustomerList.jsx 
+│   │   │  	│	├── CustomerCreate.jsx 
+│   │   │  	│	├── CustomerEdit.jsx
+│   │   │  	│	├── customers.css
+│   │   │   │   └── index.js
 │   │   │   ├── purchases/
+│   │   │   │   ├── PurchaseList.jsx
+│   │   │  	│	├── PurchaseCreate.jsx 
+│   │   │  	│	├── PurchaseEdit.jsx 
+│   │   │  	│	├── purchase.css
+│   │   │   │   └── index.js
 │   │   │   ├── sales/
-│   │   │   ├── reports/
+│   │   │   │   ├── SaleList.jsx 
+│   │   │  	│	├── SaleCreate.jsx 
+│   │   │  	│	├── SaleDetails.jsx
+│   │   │  	│	├── sales.css
+│   │   │   │   └── index.js
 │   │   │   ├── inventory/
+│   │   │   │   ├── Inventory.jsx
+│   │   │   │   ├── StockMovement.jsx
+│   │   │   │   ├── LowStock.jsx 
+│   │   │   │   ├── inventory.css
+│   │   │   │   └── index.js
+│   │   │   ├── reports/
+│   │   │   │   ├── Reports.jsx
+│   │   │   │   ├── SalesReport.jsx 
+│   │   │   │   ├── InventoryReport.jsx
+│   │   │   │   ├── reports.css
+│   │   │   │   └── index.js
 │   │   │   ├── settings/
+│   │   │   │   ├── Settings.jsx
+│   │   │   │   ├── Profile.jsx
+│   │   │   │   ├── ChangePassword.jsx 
+│   │   │   │   ├── settings.css
+│   │   │   │   └── index.js
 │   │   │   └── not-found/
-│   │   │
-│   │   ├── layouts/                                      
-│   │   │   ├── MainLayout.jsx
-│   │   │   └── AuthLayout.jsx
-│   │   ├── services/                                    
-│   │   │   ├── api.js
-│   │   │   ├── auth.service.js
-│   │   │   ├── product.service.js
-│   │   │   ├── category.service.js
-│   │   │   ├── supplier.service.js
-│   │   │   ├── customer.service.js 
-│   │   │   ├── purchase.service.js 
-│   │   │   ├── sale.service.js 
-│   │   │   ├── inventory.service.js
-│   │   │   └── report.service.js
-│   │   ├── context/                                         
-│   │   │   ├── AuthContext.jsx
-│   │   │   └── ThemeContext.jsx
+│   │   │  		├── Not-found.jsx
+│   │   │  		├── not-found.css
+│   │   │       └── index.js
 │   │   │
 │   │   ├── hooks/                                       
-│   │   │   ├── useAuth.js
-│   │   │   ├── useProducts.js
-│   │   │   └── useFetch.js
+│   │   │   ├── useAuth.js                               # Login logout, current user, authentication state
+│   │   │   ├── useFetch.js                              # Generic API request handing (loading, error, data)
+│   │   │   ├── useProducts.js                           # CRUD operations for products
+│   │   │   ├── useCategories.js                         # Category management
+│   │   │   ├── useSuppliers.js                          # Supplier management
+│   │   │   ├── useCustomers.js                          # Customer Management 
+│   │   │   ├── usePurchases.js                          # Purchase record and createion
+│   │   │   ├── useSales.js                              # Sale record and creation 
+│   │   │   ├── useInventory.js                          # Inventory and Stock Movement
+│   │   │   ├── useReports.js                            # Report generation and summaries
+│   │   │   ├── useDashboard.js                          # Dashboard statistics and summaries
+│   │   │   ├── usePagination.js                         # Pagination Logic reusable across tables
+│   │   │   ├── useDebounce.js                           # Debounce values for search inputs
+│   │   │   ├── useLocalStorage.js                       # Persist datain local state
+│   │   │   ├── useModal.js                              # Open/Close State for dialogs and Modal
+│   │   │   ├── useTheme,js                              # Theme switching (light/dark)
+│   │   │   └── index.js
+│   │   │
+│   │   ├── services/                                    
+│   │   │   ├── api.js                                   # Configure Axios (base URL, interceptors, auth token, error banding)
+│   │   │   ├── auth.service.js                          # Login, logout, register, refresh, token current user 
+│   │   │   ├── dashboard.service.js                     # Dashboard statistic, summary cards, charts 
+│   │   │   ├── product.service.js                       # Product CRUD operations
+│   │   │   ├── category.service.js                      # Category CRUD operations
+│   │   │   ├── supplier.service.js                      # Supplier CRUD operations 
+│   │   │   ├── customer.service.js                      # Customer CRUD operations
+│   │   │   ├── purchase.service.js                      # Purchase CRUD and purchse items
+│   │   │   ├── sale.service.js                          # Sales CRUD and sale items 
+│   │   │   ├── inventory.service.js                     # Stock, updates, inventory, profit reports 
+│   │   │   ├── report.service.js                        # Sales purchase, inventory. profit reports
+│   │   │   └── upload.service.js                        # Image/file upload of product image are supported
 │   │   │
 │   │   ├── routes/                                  
-│   │   │   ├── AppRoutes.jsx
-│   │   │   └── PrivateRoute.jsx
+│   │   │   ├── AppRoutes.jsx                            # Defines all application route 
+│   │   │   ├── PrivateRoute.jsx                         # Products authent routes 
+│   │   │   ├── PublicRoute.jsx                          # Prevents authenticated users from accessing pages like login 
+│   │   │   ├── RoleRoute.js                             # Restricts routes based on user roles (Admin, Manager, Staff)
+│   │   │   ├── routePaths.jsx                           # Stores all paths as constants
+│   │   │   └── index.js                                 # Re-exports route modules clearner imports
+│   │   │
 │   │   ├── utils/                                       
-│   │   │   ├── helpers.js
-│   │   │   ├── constants.js
-│   │   │   ├── validator.js
-│   │   │   └── formatter.js      
+│   │   │   ├── helpers.js                               # General reusable utility functions
+│   │   │   ├── constants.js                             # Application wide constants
+│   │   │   ├── validator.js                             # Custom validation function 
+│   │   │   ├── formatter.js                             # Formatting text, numbers, IDs 
+│   │   │   ├── date.js                                  # Date and time formatting utilities
+│   │   │   ├── currency.js                              # Currency calculations and formatting 
+│   │   │   ├── storage.js                               # LocalStorage and SessionStorage helpers 
+│   │   │   ├── permission.js                            # Role and permission helper functions
+│   │   │   └── index.js                                 # Re-export utitity function
+│   │   │     
+│   │   ├── constants/                                         
+│   │   │   ├── api.js                                   # API endpoint timeout values
+│   │   │   ├── app.js                                   # Application name, version, page size 
+│   │   │   ├── auth.js                                  # Authentication-related constants 
+│   │   │   ├── routes.js                                # Route paths 
+│   │   │   ├── roles.js                                 # User roles and permissions 
+│   │   │   ├── inventory.js                             # Stock limits, movement types 
+│   │   │   ├── messages.js                              # Success and error messages 
+│   │   │   ├── status.js                                # Order, inventory, and user status values 
+│   │   │   ├── validation.js                            # Validation rules and limits 
+│   │   │   └── index.js                   
 │   │   │      
 │   │   ├── App.jsx 
 │   │   ├── main.jsx                                    
